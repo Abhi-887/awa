@@ -2,7 +2,6 @@
 // app/DataTables/SliderDataTable.php
 
 namespace App\DataTables;
-use App\Models\SliderCategory;
 use App\Models\Slider;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -36,11 +35,8 @@ class SliderDataTable extends DataTable
             ->addColumn('background_image', function($query){
                 return '<img width="100px" src="'.asset($query->background_image).'">';
             })
-			
-			 ->addColumn('category_id', function($query){
-				return $query->SliderCategory->category; // Access category name via relationship
-			})
-			
+
+
 			 ->addColumn('show_at_home', function($query){
                 if($query->show_at_home === 0){
                     return '<span class="badge badge-primary">Home</span>';
@@ -58,8 +54,8 @@ class SliderDataTable extends DataTable
                     return '<span class="badge badge-danger">Not Found</span>';
                 }
             })
-			
-			
+
+
             ->addColumn('status', function($query){
                 if($query->status === 1){
                     return '<span class="badge badge-primary">Active</span>';
@@ -67,8 +63,8 @@ class SliderDataTable extends DataTable
                     return '<span class="badge badge-danger">InActive</span>';
                 }
             })
-			
-            ->rawColumns(['image', 'background_image', 'action', 'status','category_id', 'show_at_home'])
+
+            ->rawColumns(['image', 'background_image', 'action', 'status', 'show_at_home'])
             ->setRowId('id');
     }
 
@@ -78,7 +74,7 @@ class SliderDataTable extends DataTable
    public function query(Slider $model): QueryBuilder
     {
         return $model->newQuery();
-    } 
+    }
 
     /**
      * Optional method if you want to use the html builder.
