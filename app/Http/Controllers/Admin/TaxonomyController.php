@@ -6,6 +6,7 @@ use App\DataTables\TaxonomyDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Http\Requests\Admin\TaxonomyCreateRequest;
+use App\Http\Requests\Admin\TaxonomyUpdateRequest;
 use App\Models\Taxonomy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -74,7 +75,7 @@ public function create(): View
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryUpdateRequest $request, string $id)
+    public function update(TaxonomyUpdateRequest $request, string $id)
     {
         $category = Taxonomy::findOrFail($id);
         $category->name = $request->name;

@@ -22,7 +22,7 @@ class TaxonomyUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:255', 'unique:categories,name,'.$this->category],
+            'name' => ['required', 'max:255', 'unique:categories,name,' . $this->category],
             'show_at_home' => ['required', 'boolean'],
             'status' => ['required', 'boolean'],
         ];
