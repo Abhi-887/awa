@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
@@ -21,7 +20,8 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Redirect to the admin dashboard
+                return redirect(RouteServiceProvider::ADMIN);
             }
         }
 
