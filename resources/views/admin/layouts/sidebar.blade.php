@@ -84,12 +84,7 @@
                         </a>
                     </li>
 
-                    {{-- <li class="menu-item {{ setSidebarActive(['admin.consultation.index']) }}">
-                        <a class="menu-item-button" href="{{ route('admin.consultation.index') }}">
-                            <div class="icon"><i class="fa-solid fa-business-time"></i></div>
-                            <div class="text">Consultation Time</div>
-                        </a>
-                    </li> --}}    
+
 
                     <li
                         class="menu-item has-children {{ setSidebarActive([
@@ -292,7 +287,7 @@
                         'admin.blog-category.*',
                         'admin.blogs.*',
                         'admin.blogs.comments.index'
-                    ]) }}">
+                      ]) }}">
                         <a href="javascript:void(0);" class="menu-item-button">
                             <div class="icon"><i class="fas fa-rss"></i></div>
                             <div class="text">Blog</div>
@@ -337,12 +332,7 @@
                 </a>
             </li>
 
-            {{-- <li class="menu-item {{ setSidebarActive(['admin.social-link.index']) }}">
-                <a class="nav-link" href="{{ route('admin.social-link.index') }}">
-                    <div class="icon"><i class="fas fa-link"></i></div>
-                    <div class="text">Social Links</div>
-                </a>
-            </li> --}}
+          
 
             <li class="menu-item {{ setSidebarActive(['admin.menu-builder.index']) }}">
                 <a class="nav-link" href="{{ route('admin.menu-builder.index') }}">
