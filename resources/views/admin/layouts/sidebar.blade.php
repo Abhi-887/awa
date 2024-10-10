@@ -89,7 +89,7 @@
                             <div class="icon"><i class="fa-solid fa-business-time"></i></div>
                             <div class="text">Consultation Time</div>
                         </a>
-                    </li> --}}
+                    </li> --}}    
 
                     <li
                         class="menu-item has-children {{ setSidebarActive([
@@ -368,11 +368,7 @@
             </div>
 
 
-            {{-- <div class="center-item">
-                <ul class="menu-list">
 
-                </ul>
-            </div> --}}
         </div>
     </div>
 </div>
