@@ -2,7 +2,6 @@
 // app/DataTables/SliderDataTable.php
 
 namespace App\DataTables;
-use App\Models\SliderCategory2;
 use App\Models\Slider2;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -34,15 +33,8 @@ class Slider2DataTable extends DataTable
             ->addColumn('image', function($query){
                 return '<img width="100px" src="'.asset($query->image).'">';
             })
-        
-			
-			->addColumn('category_id', function($query){
-			return $query->sliderCategory2 ? $query->sliderCategory2->category : ''; // Check if the related category exists
-		})
 
-			
-		
-			
+
             ->addColumn('status', function($query){
                 if($query->status === 1){
                     return '<span class="badge badge-primary">Active</span>';
@@ -50,7 +42,7 @@ class Slider2DataTable extends DataTable
                     return '<span class="badge badge-danger">InActive</span>';
                 }
             })
-			
+
             ->rawColumns(['image', 'action', 'status'])
             ->setRowId('id');
     }
@@ -87,7 +79,6 @@ class Slider2DataTable extends DataTable
             Column::make('id')->width(60),
             Column::make('image')->width(150),
             Column::make('title'),
-            Column::make('category_id')->width(150)->title('Category'),
             Column::make('status'),
             Column::computed('action')
                 ->exportable(false)

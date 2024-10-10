@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Slider2CreateRequest;
 use App\Http\Requests\Admin\Slider2UpdateRequest;
 use App\Models\Slider2;
-use App\Models\SliderCategory2;
 use App\Traits\FileUploadTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -24,14 +23,13 @@ class Slider2Controller extends Controller
 
     public function create(): View
     {
-        $categories = SliderCategory2::all();
-        return view('admin.slider2.create', compact('categories'));
+        return view('admin.slider2.create');
     }
 
     public function store(Slider2CreateRequest $request): RedirectResponse
     {
         $imagePath = $this->uploadImage($request, 'image');
-      
+
 
         $slider = new Slider2();
         $slider->image = $imagePath;
@@ -40,7 +38,7 @@ class Slider2Controller extends Controller
         $slider->category_id = $request->category_id;
         $slider->sub_title = $request->sub_title;
         $slider->short_description = $request->short_description;
-       
+
         $slider->button_link = $request->button_link;
         $slider->status = $request->status;
         $slider->save();
@@ -53,7 +51,6 @@ class Slider2Controller extends Controller
     public function edit(string $id): View
     {
         $slider = Slider2::findOrFail($id);
-        $categories = SliderCategory2::pluck('category', 'id');
         return view('admin.slider2.edit', compact('slider', 'categories'));
     }
 
@@ -62,16 +59,16 @@ class Slider2Controller extends Controller
         $slider = Slider2::findOrFail($id);
 
         $imagePath = $this->uploadImage($request, 'image', $slider->image);
-       
+
 
         $slider->image = $imagePath ?: $slider->image;
-        
+
         $slider->category_id = $request->category_id;
         $slider->offer = $request->offer;
         $slider->title = $request->title;
         $slider->sub_title = $request->sub_title;
         $slider->short_description = $request->short_description;
-       
+
         $slider->button_link = $request->button_link;
         $slider->status = $request->status;
         $slider->save();

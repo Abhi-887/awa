@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SliderCreateRequest;
 use App\Http\Requests\Admin\SliderUpdateRequest;
 use App\Models\Slider;
-use App\Models\SliderCategory;
 use App\Traits\FileUploadTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -30,8 +29,7 @@ class SliderController extends Controller
      */
     public function create(): View
     {
-        $categories = SliderCategory::all();
-        return view('admin.slider.create', compact('categories'));
+        return view('admin.slider.create');
     }
 
     /**
@@ -66,7 +64,6 @@ class SliderController extends Controller
    public function edit(string $id): View
 {
     $slider = Slider::findOrFail($id);
-    $categories = SliderCategory::pluck('category', 'id'); // Assuming 'Category' is your model name
     return view('admin.slider.edit', compact('slider', 'categories'));
 }
 
