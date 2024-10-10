@@ -84,12 +84,12 @@
                         </a>
                     </li>
 
-                    <li class="menu-item {{ setSidebarActive(['admin.consultation.index']) }}">
+                    {{-- <li class="menu-item {{ setSidebarActive(['admin.consultation.index']) }}">
                         <a class="menu-item-button" href="{{ route('admin.consultation.index') }}">
                             <div class="icon"><i class="fa-solid fa-business-time"></i></div>
                             <div class="text">Consultation Time</div>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li
                         class="menu-item has-children {{ setSidebarActive([
@@ -238,6 +238,8 @@
                             </li>
                         </ul>
                     </li>
+
+
                     <li
                         class="menu-item has-children {{ setSidebarActive([
                             'admin.footer-info.index',
@@ -284,6 +286,8 @@
                             </li>
                         </ul>
                     </li>
+
+
                     <li class="menu-item has-children {{ setSidebarActive([
                         'admin.blog-category.*',
                         'admin.blogs.*',
