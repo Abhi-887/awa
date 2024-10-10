@@ -43,32 +43,33 @@ Route::get('/recent-orders', [AdminDashboardController::class, 'recentOrders'])-
 */
 
 
-/** Admin Auth Routes */
+
 Route::group(['middleware' => 'guest'], function () {
+    // Admin login page (default login route)
     Route::get('/', [AdminAuthController::class, 'index'])->name('admin.login');
+
+    // Forget password for admin
     Route::get('admin/forget-password', [AdminAuthController::class, 'forgetPassword'])->name('admin.forget-password');
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+/** Admin Authenticated Routes */
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
+    // Admin dashboard route after authentication
+    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Admin profile routes
     Route::put('profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
     Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
     Route::post('profile/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar.update');
+
+    // Address management (example routes)
     Route::post('address', [DashboardController::class, 'createAddress'])->name('address.store');
     Route::put('address/{id}/edit', [DashboardController::class, 'updateAddress'])->name('address.update');
     Route::delete('address/{id}', [DashboardController::class, 'destroyAddress'])->name('address.destroy');
-
-
-    // /** Chat Routes */
-
-    // Route::post('chat/send-message', [ChatController::class, 'sendMessage'])->name('chat.send-message');
-    // Route::get('chat/get-conversation/{senderId}', [ChatController::class, 'getConversation'])->name('chat.get-conversation');
 });
 
-require __DIR__ . '/auth.php';
-
-/** Show Home page */
-Route::get('/', [FrontendController::class, 'index'])->name('home');
+/** Remove public access routes for non-admins */
+require __DIR__ . '/auth.php'; // Remove unnecessary routes here if not needed
 
 // /** Brithday-&-party-cakes page*/
 // Route::get('/brithday-&-party-cakes', function () {
