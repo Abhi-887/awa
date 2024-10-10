@@ -64,7 +64,7 @@
                 class="menu-item has-children {{ setSidebarActive(['admin.slider.index', 'admin.slider-category.index']) }}">
                 <a href="javascript:void(0);" class="menu-item-button">
                     <div class="icon"><i class="fas fa-images"></i></div>
-                    <div class="text">Manage Category</div>
+                    <div class="text">Manage Taxonomy</div>
                 </a>
                 <ul class="sub-menu">
                     <li class="sub-menu-item {{ setSidebarActive(['admin.slider.index']) }}">
