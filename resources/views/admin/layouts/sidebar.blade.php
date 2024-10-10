@@ -69,6 +69,11 @@
                 <ul class="sub-menu">
                     <li class="sub-menu-item {{ setSidebarActive(['admin.slider.index']) }}">
                         <a href="{{ route('admin.slider.index') }}" class="">
+                            <div class="text">Category</div>
+                        </a>
+                    </li>
+                    <li class="sub-menu-item {{ setSidebarActive(['admin.slider.index']) }}">
+                        <a href="{{ route('admin.slider.index') }}" class="">
                             <div class="text">Taxonomy</div>
                         </a>
                     </li>
