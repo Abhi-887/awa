@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Category;
+use App\Models\Taxonomy;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -55,7 +55,7 @@ class TaxonomyDataTable extends DataTable
      * Get the query source of dataTable.
      */
 
-	public function query(Category $model): QueryBuilder
+	public function query(Taxonomy $model): QueryBuilder
     {
         return $model->newQuery()->with('parentCategory');
     }
@@ -99,6 +99,6 @@ class TaxonomyDataTable extends DataTable
 
     protected function filename(): string
     {
-        return 'Category_' . date('YmdHis');
+        return 'Taxonomy_' . date('YmdHis');
     }
 }

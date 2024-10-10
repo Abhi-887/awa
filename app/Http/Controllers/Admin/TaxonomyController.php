@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\CategoryDataTable;
+use App\DataTables\TaxonomyDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CategoryCreateRequest;
 use App\Http\Requests\Admin\CategoryUpdateRequest;
-use App\Models\Category;
+use App\Http\Requests\Admin\TaxonomyCreateRequest;
+use App\Models\Taxonomy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -17,7 +17,7 @@ class TaxonomyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(CategoryDataTable $dataTable)
+    public function index(TaxonomyDataTable $dataTable)
     {
         return $dataTable->render('admin.product.category.index');
     }
@@ -30,7 +30,7 @@ class TaxonomyController extends Controller
 
 public function create(): View
 {
-    $parentCategories = Category::where('parent', 0)->get();
+    $parentCategories = Taxonomy::where('parent', 0)->get();
     return view('admin.product.category.create', compact('parentCategories'));
 }
 
@@ -40,9 +40,9 @@ public function create(): View
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryCreateRequest $request) : RedirectResponse
+    public function store(TaxonomyCreateRequest $request) : RedirectResponse
     {
-        $category = new Category();
+        $category = new Taxonomy();
         $category->name = $request->name;
 	        $category->parent = $request->parent ?? 0;
 		$category->slug = Str::slug($request->name);
@@ -63,8 +63,8 @@ public function create(): View
 
 	public function edit(string $id): View
 {
-    $category = Category::findOrFail($id);
-    $parentCategories = Category::where('parent', 0)->get();
+    $category = Taxonomy::findOrFail($id);
+    $parentCategories = Taxonomy::where('parent', 0)->get();
 
     return view('admin.product.category.edit', compact('category', 'parentCategories'));
 }
@@ -76,7 +76,7 @@ public function create(): View
      */
     public function update(CategoryUpdateRequest $request, string $id)
     {
-        $category = Category::findOrFail($id);
+        $category = Taxonomy::findOrFail($id);
         $category->name = $request->name;
         $category->parent = $request->parent ?? 0;
         $category->slug = Str::slug($request->name);
@@ -95,7 +95,7 @@ public function create(): View
     public function destroy(string $id)
     {
         try{
-            Category::findOrFail($id)->delete();
+            Taxonomy::findOrFail($id)->delete();
             return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
         }catch(\Exception $e){
             return response(['status' => 'error', 'message' => 'something went wrong!']);
