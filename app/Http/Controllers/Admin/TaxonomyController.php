@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\TaxonomyDataTable;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Http\Requests\Admin\TaxonomyCreateRequest;
 use App\Http\Requests\Admin\TaxonomyUpdateRequest;
 use App\Models\Taxonomy;
