@@ -59,6 +59,22 @@
                         </ul>
                     </li>
                 </ul>
+
+                <li
+                class="menu-item has-children {{ setSidebarActive(['admin.slider.index', 'admin.slider-category.index']) }}">
+                <a href="javascript:void(0);" class="menu-item-button">
+                    <div class="icon"><i class="fas fa-images"></i></div>
+                    <div class="text">Manage Category</div>
+                </a>
+                <ul class="sub-menu">
+                    <li class="sub-menu-item {{ setSidebarActive(['admin.slider.index']) }}">
+                        <a href="{{ route('admin.slider.index') }}" class="">
+                            <div class="text">Taxonomy</div>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
             </div>
 
             <div class="center-item">
