@@ -259,11 +259,11 @@
                                     <div class="text">Footer Info</div>
                                 </a>
                             </li>
-                            <li class="sub-menu-item {{ setSidebarActive(['admin.footer-info-two.index']) }}">
+                            {{-- <li class="sub-menu-item {{ setSidebarActive(['admin.footer-info-two.index']) }}">
                                 <a href="{{ route('admin.footer-info-two.index') }}" class="">
                                     <div class="text">Footer Info Two</div>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="sub-menu-item {{ setSidebarActive(['admin.footer-socials.index']) }}">
                                 <a href="{{ route('admin.footer-socials.index') }}" class="">
                                     <div class="text">Footer Socials</div>
@@ -271,17 +271,17 @@
                             </li>
                             <li class="sub-menu-item {{ setSidebarActive(['admin.footer-grid-two.index']) }}">
                                 <a href="{{ route('admin.footer-grid-two.index') }}" class="">
-                                    <div class="text">Footer Grid Two</div>
+                                    <div class="text">Footer Grid One</div>
                                 </a>
                             </li>
                             <li class="sub-menu-item {{ setSidebarActive(['admin.footer-grid-three.index']) }}">
                                 <a href="{{ route('admin.footer-grid-three.index') }}" class="">
-                                    <div class="text">Footer Grid Three</div>
+                                    <div class="text">Footer Grid Two</div>
                                 </a>
                             </li>
                             <li class="sub-menu-item {{ setSidebarActive(['admin.footer-grid-four.index']) }}">
                                 <a href="{{ route('admin.footer-grid-four.index') }}" class="">
-                                    <div class="text">Footer Grid Four</div>
+                                    <div class="text">Footer Grid Three</div>
                                 </a>
                             </li>
                         </ul>
@@ -337,12 +337,12 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ setSidebarActive(['admin.social-link.index']) }}">
+            {{-- <li class="menu-item {{ setSidebarActive(['admin.social-link.index']) }}">
                 <a class="nav-link" href="{{ route('admin.social-link.index') }}">
                     <div class="icon"><i class="fas fa-link"></i></div>
                     <div class="text">Social Links</div>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="menu-item {{ setSidebarActive(['admin.menu-builder.index']) }}">
                 <a class="nav-link" href="{{ route('admin.menu-builder.index') }}">
