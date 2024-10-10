@@ -91,7 +91,7 @@
                                 <div class="button-show-hide">
                                     <i class="icon-menu-left"></i>
                                 </div>
-                                {{-- <form class="form-search flex-grow" method="GET" action="{{ route('search') }}">
+                                {{-- <form class="flex-grow form-search" method="GET" action="{{ route('search') }}">
                                         <fieldset class="name">
                                             <input type="text" placeholder="Search here..." class="show-search"
                                                 name="query" tabindex="2" value="" aria-required="true" required>
@@ -134,7 +134,7 @@
                                             </li>
                                             @foreach ($notifications as $notification)
                                                 <li>
-                                                    <div class="noti-item w-full wg-user active">
+                                                    <div class="w-full noti-item wg-user active">
                                                         <div class="image">
                                                             <i class="icon-noti-{{ $loop->index + 1 }}"></i>
                                                         </div>
@@ -154,7 +154,7 @@
                                                 </li>
                                             @endforeach
                                             <li><a href="{{ route('admin.orders.index') }}"
-                                                    class="tf-button w-full">View all</a></li>
+                                                    class="w-full tf-button">View all</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                                 <h6>Messages</h6>
                                             </li>
                                             <!-- Loop through messages here -->
-                                            <li><a href="{{ route('admin.chat.index') }}" class="tf-button w-full">View
+                                            <li><a href="{{ route('admin.chat.index') }}" class="w-full tf-button">View
                                                     all</a></li>
                                         </ul>
                                     </div>
@@ -193,7 +193,7 @@
                                                     <img src="{{ asset(auth()->user()->avatar) }}" alt="">
                                                 </span>
                                                 <span class="flex flex-column">
-                                                    <span class="body-title mb-2">{{ auth()->user()->name }}</span>
+                                                    <span class="mb-2 body-title">{{ auth()->user()->name }}</span>
                                                     <span class="text-tiny">Admin</span>
                                                 </span>
                                             </span>
@@ -223,7 +223,7 @@
                             @yield('content')
                         </div>
                         <div class="bottom-page">
-                            <div class="body-text">Copyright © 2024 3d cakes</div>
+                            <div class="body-text">Copyright © 2024 Australian whisky Auction</div>
                             <i class="icon-heart"></i>
                             <div class="body-text">by - </a> All rights reserved.</div>
                         </div>

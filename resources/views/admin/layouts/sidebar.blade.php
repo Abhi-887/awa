@@ -15,7 +15,7 @@
     <div class="section-menu-left-wrap">
         <div class="center">
             <div class="center-item">
-                {{-- <div class="center-heading">Dashboard</div> --}}
+
                 <ul class="menu-list">
                     <li class="menu-item {{ setSidebarActive(['admin.dashboard']) }}">
                         <a class="nav-link" href="{{ route('admin.dashboard') }}">
@@ -41,11 +41,7 @@
                                     <div class="text">Slider</div>
                                 </a>
                             </li>
-                            {{-- <li class="sub-menu-item {{ setSidebarActive(['admin.slider-category.index']) }}">
-                                <a href="{{ route('admin.slider-category.index') }}" class="">
-                                    <div class="text">Slider Category</div>
-                                </a>
-                            </li> --}}
+
                         </ul>
                     </li>
 
@@ -332,7 +328,7 @@
                 </a>
             </li>
 
-          
+
 
             <li class="menu-item {{ setSidebarActive(['admin.menu-builder.index']) }}">
                 <a class="nav-link" href="{{ route('admin.menu-builder.index') }}">
