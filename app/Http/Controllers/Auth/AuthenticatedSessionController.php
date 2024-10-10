@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -25,15 +24,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        // Authenticate the user
         $request->authenticate();
 
+        // Regenerate the session after login
         $request->session()->regenerate();
 
-        if($request->user()->role === 'admin'){
-            return redirect()->intended(RouteServiceProvider::ADMIN);
-        }
-        
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // Always redirect to admin dashboard
+        return redirect()->intended(RouteServiceProvider::ADMIN);
     }
 
     /**
