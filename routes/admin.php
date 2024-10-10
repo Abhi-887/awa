@@ -112,7 +112,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('menus', MenusController::class);
 
 
-    Route::resource('products-image-gallery', ProductImageGalleryController::class);
+    // Route::resource('products-image-gallery', ProductImageGalleryController::class);
 
     /** Products variant route */
     Route::put('products-variant/change-status', [ProductVariantController::class, 'changeStatus'])->name('products-variant.change-status');
