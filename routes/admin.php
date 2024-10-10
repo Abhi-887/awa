@@ -46,8 +46,6 @@ use App\Http\Controllers\Admin\ReservationTimeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\Slider2Controller;
-use App\Http\Controllers\Admin\SlidercategoryController;
-use App\Http\Controllers\Admin\Slidercategory2Controller;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\TramsAndConditionController;
@@ -59,6 +57,7 @@ use App\Http\Controllers\Admin\CustomerfeedbackController;
 use App\Http\Controllers\Admin\MenusController;
 use App\Http\Controllers\Admin\ProductVariantController;
 use App\Http\Controllers\Admin\ProductVariantItemController;
+use App\Http\Controllers\Admin\TaxonomyController;
 use App\Models\AppDownloadSection;
 use App\Models\BannerSlider;
 use App\Models\Coupon;
@@ -88,11 +87,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     /** Slider2 Routes */
     Route::resource('slider2', Slider2Controller::class);
 
-    /** Slider Category */
-    Route::resource('slider-category', SlidercategoryController::class);
+     /** Product Category Routes */
+     Route::resource('taxonomy', TaxonomyController::class);
 
-    /** Slider Category2 */
-    Route::resource('slider-category2', Slidercategory2Controller::class);
+
 
     Route::get('coupon/report', [CouponController::class, 'redemptionReport'])->name('admin.report');
 
