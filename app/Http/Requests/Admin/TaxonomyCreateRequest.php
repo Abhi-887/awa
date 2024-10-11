@@ -23,7 +23,6 @@ class TaxonomyCreateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255', 'unique:categories,name'],
-            'show_at_home' => ['required', 'boolean'],
             'status' => ['required', 'boolean'],
         ];
     }

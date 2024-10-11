@@ -19,7 +19,7 @@ class TaxonomyController extends Controller
      */
     public function index(TaxonomyDataTable $dataTable)
     {
-        return $dataTable->render('admin.product.category.index');
+        return $dataTable->render('admin.taxonomy.index');
     }
 
     /**
@@ -28,11 +28,11 @@ class TaxonomyController extends Controller
 
 
 
-public function create(): View
-{
-    $parentCategories = Taxonomy::where('parent', 0)->get();
-    return view('admin.product.category.create', compact('parentCategories'));
-}
+    public function create(): View
+    {
+        $parentCategories = Taxonomy::where('parent', 0)->get();
+        return view('admin.taxonomy.create', compact('parentCategories'));
+    }
 
 
 
@@ -40,20 +40,19 @@ public function create(): View
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TaxonomyCreateRequest $request) : RedirectResponse
+    public function store(TaxonomyCreateRequest $request): RedirectResponse
     {
-        $category = new Taxonomy();
-        $category->name = $request->name;
-	        $category->parent = $request->parent ?? 0;
-		$category->slug = Str::slug($request->name);
-        $category->show_at_home = $request->show_at_home;
-        $category->status = $request->status;
-        $category->save();
+        $taxonomy = new Taxonomy();
+        $taxonomy->name = $request->name;
+        $taxonomy->parent = $request->parent ?? 0;
+        $taxonomy->slug = Str::slug($request->name);
+        $taxonomy->show_at_home = $request->show_at_home;
+        $taxonomy->status = $request->status;
+        $taxonomy->save();
 
         toastr()->success('Created Successfully');
 
-        return to_route('admin.category.index');
-
+        return to_route('admin.taxonomy.index');
     }
 
 
@@ -61,13 +60,13 @@ public function create(): View
      * Show the form for editing the specified resource.
      */
 
-	public function edit(string $id): View
-{
-    $category = Taxonomy::findOrFail($id);
-    $parentCategories = Taxonomy::where('parent', 0)->get();
+    public function edit(string $id): View
+    {
+        $taxonomy = Taxonomy::findOrFail($id);
+        $parentCategories = Taxonomy::where('parent', 0)->get();
 
-    return view('admin.product.category.edit', compact('category', 'parentCategories'));
-}
+        return view('admin.taxonomy.edit', compact('taxonomy', 'parentCategories'));
+    }
 
 
 
@@ -76,17 +75,17 @@ public function create(): View
      */
     public function update(TaxonomyUpdateRequest $request, string $id)
     {
-        $category = Taxonomy::findOrFail($id);
-        $category->name = $request->name;
-        $category->parent = $request->parent ?? 0;
-        $category->slug = Str::slug($request->name);
-        $category->show_at_home = $request->show_at_home;
-        $category->status = $request->status;
-        $category->save();
+        $taxonomy = Taxonomy::findOrFail($id);
+        $taxonomy->name = $request->name;
+        $taxonomy->parent = $request->parent ?? 0;
+        $taxonomy->slug = Str::slug($request->name);
+        $taxonomy->show_at_home = $request->show_at_home;
+        $taxonomy->status = $request->status;
+        $taxonomy->save();
 
         toastr()->success('Updated Successfully');
 
-        return to_route('admin.category.index');
+        return to_route('admin.taxonomy.index');
     }
 
     /**
@@ -94,10 +93,10 @@ public function create(): View
      */
     public function destroy(string $id)
     {
-        try{
+        try {
             Taxonomy::findOrFail($id)->delete();
             return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response(['status' => 'error', 'message' => 'something went wrong!']);
         }
     }

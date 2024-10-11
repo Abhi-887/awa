@@ -74,8 +74,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/recent-orders', [AdminDashboardController::class, 'recentOrders'])->name('recentOrders');
 
- // Add the route for low stock alerts
- Route::get('/low-stock-alerts', [AdminDashboardController::class, 'getLowStockAlerts'])->name('getLowStockAlerts');
+    // Add the route for low stock alerts
+    Route::get('/low-stock-alerts', [AdminDashboardController::class, 'getLowStockAlerts'])->name('getLowStockAlerts');
     /** Profile Routes */
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
@@ -87,8 +87,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     /** Slider2 Routes */
     Route::resource('slider2', Slider2Controller::class);
 
-     /** Product Category Routes */
-     Route::resource('taxonomy', TaxonomyController::class);
+    /** Product Category Routes */
+    Route::resource('taxonomy', TaxonomyController::class);
 
 
 

@@ -9,9 +9,9 @@ class Taxonomy extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'parent', 'slug', 'status', 'show_at_home'];
+    protected $fillable = ['name', 'parent', 'slug', 'status'];
 
-	 public function parentCategory()
+    public function parentCategory()
     {
         return $this->belongsTo(Taxonomy::class, 'parent');
     }

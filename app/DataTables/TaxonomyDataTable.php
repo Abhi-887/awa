@@ -33,13 +33,6 @@ class TaxonomyDataTable extends DataTable
                 return $query->parentCategory ? $query->parentCategory->name : 'No Parent';
             })
 
-            ->addColumn('show_at_home', function($query){
-                if($query->show_at_home === 1){
-                    return '<span class="badge badge-primary">Yes</span>';
-                }else {
-                    return '<span class="badge badge-danger">No</span>';
-                }
-            })
             ->addColumn('status', function($query){
                 if($query->status === 1){
                     return '<span class="badge badge-primary">Active</span>';
@@ -47,7 +40,7 @@ class TaxonomyDataTable extends DataTable
                     return '<span class="badge badge-danger">Inactive</span>';
                 }
             })
-            ->rawColumns(['show_at_home', 'status', 'action'])
+            ->rawColumns([ 'status', 'action'])
             ->setRowId('id');
     }
 
@@ -66,7 +59,7 @@ class TaxonomyDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('category-table')
+                    ->setTableId('taxonomy-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -91,7 +84,6 @@ class TaxonomyDataTable extends DataTable
             Column::make('id'),
             Column::make('name'),
             Column::make('parent_name')->title('Parent')->exportable(false)->printable(false),
-            Column::make('show_at_home'),
             Column::make('status'),
             Column::computed('action')->exportable(false)->printable(false)->width(150)->addClass('text-center'),
         ];
